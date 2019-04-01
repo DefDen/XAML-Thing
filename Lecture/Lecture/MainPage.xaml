@@ -9,8 +9,14 @@
 
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="519,544,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="552,780,0,0" Text="Click the button!" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="textBlock_SelectionChanged" FontSize="48"/>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
+        <Rectangle Fill="Red" Grid.Row="0" />
+        <Rectangle Fill="Green" Grid.Row="1" />
+        <Rectangle Fill="Blue" Grid.Row="2" />
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Right" Margin="0,10,10,0" Grid.Row="1" VerticalAlignment="Top" />
     </Grid>
 </Page>
