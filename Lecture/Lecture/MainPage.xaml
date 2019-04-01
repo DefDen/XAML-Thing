@@ -8,15 +8,15 @@
     mc:Ignorable="d">
 
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="3*" />
-        </Grid.RowDefinitions>
-        <Rectangle Fill="Red" Grid.Row="0" />
-        <Rectangle Fill="Green" Grid.Row="1" />
-        <Rectangle Fill="Blue" Grid.Row="2" />
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Right" Margin="0,10,10,0" Grid.Row="1" VerticalAlignment="Top" />
-    </Grid>
+    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+        <Rectangle Width="200" Height="200" Fill="Bisque" />
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Rectangle Width="100" Height="100" Fill="Azure"></Rectangle>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Rectangle Width="100" Height="100" Fill="Tomato"></Rectangle>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
 </Page>
