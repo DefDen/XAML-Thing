@@ -26,5 +26,10 @@ namespace Lab4
         {
             this.InitializeComponent();
         }
+
+        private void Hamburger_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
