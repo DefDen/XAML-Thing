@@ -27,9 +27,32 @@ namespace Lab4
             this.InitializeComponent();
         }
 
-        private void Hamburger_Click(object sender, RoutedEventArgs e)
+        private void HambugerButton_Click(object sender, RoutedEventArgs e)
         {
+            TheSplitView.IsPaneOpen = !TheSplitView.IsPaneOpen;
+        }
 
+        private void IconListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ShareListBoxItem.IsSelected)
+            {
+                InnerFrame.Navigate(typeof(BlankPage2));
+                Title.Text = "Financial";
+                BackButton.Visibility = Visibility.Collapsed;
+            }
+            else if (FavoritesListBoxItem.IsSelected)
+            {
+                InnerFrame.Navigate(typeof(BlankPage1));
+                Title.Text = "Food";
+                BackButton.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            InnerFrame.Navigate(typeof(BlankPage2));
+            Title.Text = "Financial";
+            BackButton.Visibility = Visibility.Collapsed;
         }
     }
 }
