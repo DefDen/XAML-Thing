@@ -8,15 +8,5 @@
     mc:Ignorable="d">
 
 
-    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-        <Rectangle Width="200" Height="200" Fill="Bisque" />
-        <StackPanel Orientation="Vertical">
-            <StackPanel Orientation="Horizontal">
-                <Rectangle Width="100" Height="100" Fill="Azure"></Rectangle>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Rectangle Width="100" Height="100" Fill="Tomato"></Rectangle>
-            </StackPanel>
-        </StackPanel>
-    </StackPanel>
+    <ProgressBar Value="50"/>
 </Page>
