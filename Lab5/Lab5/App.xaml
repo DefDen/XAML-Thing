@@ -5,4 +5,16 @@
     xmlns:local="using:Lab5"
     RequestedTheme="Light">
 
+    <Application.Resources>
+        <Style TargetType="Button" x:Key="ButtonStyle">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="FontFamily" Value="White"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+        </Style>
+    </Application.Resources>
+
 </Application>
