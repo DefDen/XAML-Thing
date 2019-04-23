@@ -104,6 +104,10 @@
     <None Include="Lab5_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Coffee.png" />
+    <Content Include="Assets\Complete.png" />
+    <Content Include="Assets\Donut.png" />
+    <Content Include="Assets\Schedule.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
