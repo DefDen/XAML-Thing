@@ -11,20 +11,29 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Image Name="DonutPicture" Source="Donut.png"/>
-        <Image Name="CoffeePicture" Source="Coffee.png"/>
-        <Image Name="SchedulePicture" Source="Schedule.png"/>
-        <Image Name="CompletePicture" Source="Complete.png"/>
-        <Button Name="DonutButton" Grid.Column="0" Style="{StaticResource ButtonStyle}" Content="Donuts" Click="DonutButton_Click"/>
-        <Button Name="CoffeeButton" Grid.Column="1" Style="{StaticResource ButtonStyle}" Content="Coffee" Click="CoffeeButton_Click"/>
-        <Button Name="ScheduleButton" Grid.Column="2" Style="{StaticResource ButtonStyle}" Content="Schedule" Click="ScheduleButton_Click"/>
-        <Button Name="CompleteButton" Grid.Column="3" Style="{StaticResource ButtonStyle}" Content="Complete" Click="CompleteButton_Click"/>
-        <Frame Name="InnerFrame" Grid.Row="1" Grid.ColumnSpan="4"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Name="DonutPicture" Source="Assets/Donut.png"/>
+            <Image Name="CoffeePicture" Source="Assets/Coffee.png"/>
+            <Image Name="SchedulePicture" Source="Assets/Schedule.png"/>
+            <Image Name="CompletePicture" Source="Assets/Complete.png"/>
+            <Button Name="DonutButton" Grid.Column="0" Style="{StaticResource ButtonStyle}" Content="Donuts" Click="DonutButton_Click"/>
+            <Button Name="CoffeeButton" Grid.Column="1" Style="{StaticResource ButtonStyle}" Content="Coffee" Click="CoffeeButton_Click"/>
+            <Button Name="ScheduleButton" Grid.Column="2" Style="{StaticResource ButtonStyle}" Content="Schedule" Click="ScheduleButton_Click"/>
+            <Button Name="CompleteButton" Grid.Column="3" Style="{StaticResource ButtonStyle}" Content="Complete" Click="CompleteButton_Click"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Frame Name="InnerFrame"/>
+            <Image Source="Assets/DonutBackground.png" Grid.Column="1" Stretch="UniformToFill"/>
+        </Grid>
     </Grid>
 </Page>
