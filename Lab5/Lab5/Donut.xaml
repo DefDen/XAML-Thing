@@ -8,9 +8,21 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <StackPanel Orientation="Vertical">
-            <Image Source="DonutLogo1.png"/>
-        </StackPanel>
+    <Grid Background="Red">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="175"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="Assets/DonutLogo1.png"/>
+        <TextBlock Text="Original Glazed Count:" Style="{StaticResource TextStyle}" Grid.Row="1"/>
+        <Slider Maximum="24" Margin="0,0,20,0" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock Text="Speedway Special Count:" Style="{StaticResource TextStyle}" Grid.Row="2"/>
+        <Slider Maximum="24" Margin="0,0,20,0" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"/>
     </Grid>
 </Page>

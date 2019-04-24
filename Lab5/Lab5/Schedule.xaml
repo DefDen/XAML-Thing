@@ -8,7 +8,9 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <TextBlock Text="Schedule"/>
+    <Grid Background="Green">
+        <StackPanel Orientation="Vertical">
+            <Image Source="Assets/DonutLogo1.png"/>
+        </StackPanel>
     </Grid>
 </Page>

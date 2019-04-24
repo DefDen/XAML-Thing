@@ -8,7 +8,9 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <TextBlock Text="Coffee"/>
+    <Grid Background="#3C1F19">
+        <StackPanel Orientation="Vertical">
+            <Image Source="Assets/DonutLogo1.png"/>
+        </StackPanel>
     </Grid>
 </Page>
