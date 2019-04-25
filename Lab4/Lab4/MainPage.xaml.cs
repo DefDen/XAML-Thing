@@ -52,6 +52,7 @@ namespace Lab4
         {
             InnerFrame.Navigate(typeof(BlankPage2));
             Title.Text = "Financial";
+            IconListBox.SelectedItem = FavoritesListBoxItem;
             BackButton.Visibility = Visibility.Collapsed;
         }
     }

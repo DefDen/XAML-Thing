@@ -9,8 +9,11 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel Orientation="Vertical">
-            <Image Source="Assets/DonutLogo2.png"/>
+        <Image Style="{StaticResource LogoStyle}" Source="Assets/DonutLogo2.png"/>
+        <Image Source="Assets/Ticket.png" Height="250" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Order" FontSize="36" VerticalAlignment="Center"/>
+            <TextBlock Text="96" FontSize="72" VerticalAlignment="Center"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -18,14 +18,30 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Image Name="DonutPicture" Source="Assets/Donut.png"/>
-            <Image Name="CoffeePicture" Source="Assets/Coffee.png"/>
-            <Image Name="SchedulePicture" Source="Assets/Schedule.png"/>
-            <Image Name="CompletePicture" Source="Assets/Complete.png"/>
-            <Button Name="DonutButton" Grid.Column="0" Style="{StaticResource ButtonStyle}" Content="Donuts" Click="DonutButton_Click"/>
-            <Button Name="CoffeeButton" Grid.Column="1" Style="{StaticResource ButtonStyle}" Content="Coffee" Click="CoffeeButton_Click"/>
-            <Button Name="ScheduleButton" Grid.Column="2" Style="{StaticResource ButtonStyle}" Content="Schedule" Click="ScheduleButton_Click"/>
-            <Button Name="CompleteButton" Grid.Column="3" Style="{StaticResource ButtonStyle}" Content="Complete" Click="CompleteButton_Click"/>
+            <Button Name="DonutButton" Grid.Column="0" Style="{StaticResource ButtonStyle}" Click="DonutButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Name="DonutPicture" Height="25" Source="Assets/Donut.png"/>
+                    <TextBlock Text="Donut" Style="{StaticResource TextStyle}"/>
+                </StackPanel>
+            </Button>
+            <Button Name="CoffeeButton" Grid.Column="1" Style="{StaticResource ButtonStyle}" Click="CoffeeButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Name="CoffeePicture" Height="25" Source="Assets/Coffee.png"/>
+                    <TextBlock Text="Coffee" Style="{StaticResource TextStyle}"/>
+                </StackPanel>
+            </Button>
+            <Button Name="ScheduleButton" Grid.Column="2" Style="{StaticResource ButtonStyle}" Click="ScheduleButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Name="SchedulePicture" Height="25" Source="Assets/Schedule.png"/>
+                    <TextBlock Text="Schedule" Style="{StaticResource TextStyle}"/>
+                </StackPanel>
+            </Button>
+            <Button Name="CompleteButton" Grid.Column="3" Style="{StaticResource ButtonStyle}" Click="CompleteButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Name="CompletePicture" Height="25" Source="Assets/Complete.png"/>
+                    <TextBlock Text="Complete" Style="{StaticResource TextStyle}"/>
+                </StackPanel>
+            </Button>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
