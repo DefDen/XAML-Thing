@@ -8,5 +8,9 @@
     mc:Ignorable="d">
 
 
-    <ProgressBar Value="50"/>
+    <Grid>
+        <DataTemplate x:DataType="data:Book">
+            
+        </DataTemplate>
+    </Grid>
 </Page>
