@@ -20,25 +20,25 @@
             </Grid.ColumnDefinitions>
             <Button Name="DonutButton" Grid.Column="0" Style="{StaticResource ButtonStyle}" Click="DonutButton_Click">
                 <StackPanel Orientation="Horizontal">
-                    <Image Name="DonutPicture" Height="25" Source="Assets/Donut.png"/>
+                    <Image Name="DonutPicture" Style="{StaticResource IconStyle}" Source="Assets/Donut.png"/>
                     <TextBlock Text="Donut" Style="{StaticResource TextStyle}"/>
                 </StackPanel>
             </Button>
             <Button Name="CoffeeButton" Grid.Column="1" Style="{StaticResource ButtonStyle}" Click="CoffeeButton_Click">
                 <StackPanel Orientation="Horizontal">
-                    <Image Name="CoffeePicture" Height="25" Source="Assets/Coffee.png"/>
+                    <Image Name="CoffeePicture" Style="{StaticResource IconStyle}" Source="Assets/Coffee.png"/>
                     <TextBlock Text="Coffee" Style="{StaticResource TextStyle}"/>
                 </StackPanel>
             </Button>
             <Button Name="ScheduleButton" Grid.Column="2" Style="{StaticResource ButtonStyle}" Click="ScheduleButton_Click">
                 <StackPanel Orientation="Horizontal">
-                    <Image Name="SchedulePicture" Height="25" Source="Assets/Schedule.png"/>
+                    <Image Name="SchedulePicture" Style="{StaticResource IconStyle}" Source="Assets/Schedule.png"/>
                     <TextBlock Text="Schedule" Style="{StaticResource TextStyle}"/>
                 </StackPanel>
             </Button>
             <Button Name="CompleteButton" Grid.Column="3" Style="{StaticResource ButtonStyle}" Click="CompleteButton_Click">
                 <StackPanel Orientation="Horizontal">
-                    <Image Name="CompletePicture" Height="25" Source="Assets/Complete.png"/>
+                    <Image Name="CompletePicture" Style="{StaticResource IconStyle}" Source="Assets/Complete.png"/>
                     <TextBlock Text="Complete" Style="{StaticResource TextStyle}"/>
                 </StackPanel>
             </Button>

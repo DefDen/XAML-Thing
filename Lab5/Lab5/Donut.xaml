@@ -20,9 +20,9 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Image Style="{StaticResource LogoStyle}"/>
-        <TextBlock Text="Original Glazed Count:" Margin="20,0,0,0" Style="{StaticResource TextStyle}" Grid.Row="1"/>
-        <Slider Maximum="24" Margin="0,0,20,0" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"/>
-        <TextBlock Text="Speedway Special Count:" Margin="20,0,0,0" Style="{StaticResource TextStyle}" Grid.Row="2"/>
-        <Slider Maximum="24" Margin="0,0,20,0" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"/>
+        <TextBlock Text="Original Glazed Count:" Style="{StaticResource DonutTextStyle}" Grid.Row="1"/>
+        <Slider Style="{StaticResource SliderStyle}" Grid.Row="1"/>
+        <TextBlock Text="Speedway Special Count:" Style="{StaticResource DonutTextStyle}" Grid.Row="2"/>
+        <Slider Style="{StaticResource SliderStyle}" Grid.Row="2"/>
     </Grid>
 </Page>

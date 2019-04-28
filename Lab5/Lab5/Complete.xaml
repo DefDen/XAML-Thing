@@ -9,9 +9,13 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <Image Style="{StaticResource LogoStyle}" Source="Assets/DonutLogo2.png"/>
-        <Image Source="Assets/Ticket.png" Height="250" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Image Source="Assets/Ticket.png" Height="250" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1"/>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1">
             <TextBlock Text="Order" FontSize="36" VerticalAlignment="Center"/>
             <TextBlock Text="96" FontSize="72" VerticalAlignment="Center"/>
         </StackPanel>

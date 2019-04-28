@@ -15,9 +15,9 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="37*"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="788*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -78,9 +78,9 @@
                 </Button.Flyout>
             </Button>
             <TextBlock Text="Coffee:" Grid.Row="1" Margin="20,20,0,0" Style="{StaticResource TextStyle}"/>
-            <TextBlock Name="CoffeeRoast" Grid.Row="1" Grid.Column="1" Margin="0,20,0,0" HorizontalAlignment="Center" Style="{StaticResource TextStyle}"/>
-            <TextBlock Name="CoffeeSweetener" Grid.Row="1" Grid.Column="2" Margin="0,20,0,0" HorizontalAlignment="Center" Style="{StaticResource TextStyle}"/>
-            <TextBlock Name="CoffeeCream" Grid.Row="1" Grid.Column="3" Margin="0,20,0,0" HorizontalAlignment="Center" Style="{StaticResource TextStyle}"/>
+            <TextBlock Name="CoffeeRoast" Grid.Column="1" Style="{StaticResource CoffeeTextStyle}"/>
+            <TextBlock Name="CoffeeSweetener" Grid.Column="2" Style="{StaticResource CoffeeTextStyle}"/>
+            <TextBlock Name="CoffeeCream" Grid.Column="3" Style="{StaticResource CoffeeTextStyle}"/>
         </Grid>
         <Image Style="{StaticResource LogoStyle}"/>
     </Grid>
