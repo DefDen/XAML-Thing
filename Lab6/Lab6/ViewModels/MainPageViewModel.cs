@@ -18,4 +18,3 @@ namespace Lab6.ViewModels
         public string Description { get; set; }
         public string ImageUrl { get; set; }
     }
-}
