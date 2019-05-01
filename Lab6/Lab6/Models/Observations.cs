@@ -113,7 +113,7 @@ namespace Lab6.Models
         public RelativeTo relativeTo { get; set; }
     }
 
-    public class ObservationRootObject
+    public class ObservationsRootObject
     {
         public bool success { get; set; }
         public object error { get; set; }
