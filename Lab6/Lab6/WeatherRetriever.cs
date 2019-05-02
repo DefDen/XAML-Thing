@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Lab6.Models;
 using Newtonsoft.Json;
-using Lab6.Models.AutoComplete;
+using Lab6.Models.Forecast;
 using Lab6.Models.Forcast;
 using System.Collections.ObjectModel;
 using Lab6.ViewModels;
@@ -42,14 +42,14 @@ namespace Lab6
             return suggestions;
         }
 
-        public async Task<ObservableCollection<ForecastDayViewModel>> GetForecasts(string enteredStr)
+        public async Task<ForecastRootObject> GetForecasts(string enteredStr)
         {
             HttpClient httpClient = new HttpClient();
             string apiUrl = $"https://api.aerisapi.com/forecasts/{enteredStr}?limit=4&filter=day&client_id={apiKey}&client_secret={secret}";
 
             string responseString = await httpClient.GetStringAsync(apiUrl);
 
-            ObservableCollection<ForecastDayViewModel> r = JsonConvert.DeserializeObject<ObservableCollection<ForecastDayViewModel>>(responseString);
+            ForecastRootObject r = JsonConvert.DeserializeObject<ForecastRootObject>(responseString);
 
             return r;
         }

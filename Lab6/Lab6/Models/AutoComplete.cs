@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab6.Models.AutoComplete
+namespace Lab6.Models.Forecast
 {
     class AutoComplete
     {
