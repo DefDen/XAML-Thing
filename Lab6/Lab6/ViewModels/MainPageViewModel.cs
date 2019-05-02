@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PropertyChanged;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace Lab6.ViewModels
 {
@@ -17,5 +18,9 @@ namespace Lab6.ViewModels
         public string Temperature { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
+
+        public List<string> AutoCompleteNames { get; set; }
+
+        public ObservableCollection<ForecastDayViewModel> Forecast { get; set; } = new ObservableCollection<ForecastDayViewModel>();
     }
 }
