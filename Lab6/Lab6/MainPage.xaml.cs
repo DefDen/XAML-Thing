@@ -17,7 +17,7 @@ using Lab6.Models;
 using System.Threading.Tasks;
 using Lab6.Models.Forecast;
 using System.Collections.ObjectModel;
-using Lab6.Models.Forcast;
+using Lab6.Models.Auto;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -51,21 +51,26 @@ namespace Lab6
             ObservationsRootObject observationsRoot = await weatherRetriever.GetObservations(cityLink);
             ForecastRootObject forecastRoot = await weatherRetriever.GetForecasts(cityLink);
 
+            ViewModel.Forecast.Clear();
+
             ViewModel.Description = observationsRoot.response.ob.weatherShort;
             ViewModel.LocationName = observationsRoot.response.place.name + ", " + observationsRoot.response.place.state + " " + observationsRoot.response.place.country;
             ViewModel.Temperature = "" + observationsRoot.response.ob.tempF;
             ViewModel.ImageUrl = GetIconURLFromName(observationsRoot.response.ob.icon);
 
-            ViewModel.Forecast = new ObservableCollection<ForecastDayViewModel>();
-            
-            foreach (Models.Forcast.Response resp in forecastRoot.response)
+            foreach (Models.Forecast.Response resp in forecastRoot.response)
             {
-                ForecastDayViewModel r = new ForecastDayViewModel();
-                r.Date = "" + resp.periods[0].dateTimeISO;
-                r.ForecastDescription = "" + resp.periods[0].weather;
-                r.TemperatureRange = "" + (resp.periods[0].maxTempF - resp.periods[0].minTempF);
-                r.IconUrl = "" + resp.periods[0].icon;
-                ViewModel.Forecast.Add(r);
+                foreach (Period period in resp.periods)
+                {
+                    ForecastDayViewModel add = new ForecastDayViewModel()
+                    {
+                        Date = period.validTime.Month + "/" + period.validTime.Day,
+                        ForecastDescription = period.weather,
+                        TemperatureRange = period.minTempF + "-" + period.maxTempF,
+                        IconUrl = "Assets/" + period.icon,
+                    };
+                    ViewModel.Forecast.Add(add);
+                }
             }
         }
 
@@ -80,7 +85,7 @@ namespace Lab6
             AutoCompleteRootObject acr = await weatherRetriever.GetSuggestions(userText);
 
             ViewModel.AutoCompleteNames = new List<string>();
-            foreach (Models.Forecast.Response resp in acr.response)
+            foreach (Models.Auto.Response resp in acr.response)
             {
                 string fullName = resp.place.name;
                 if (resp.place.state != null && resp.place.state != "")

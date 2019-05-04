@@ -21,6 +21,6 @@ namespace Lab6.ViewModels
 
         public List<string> AutoCompleteNames { get; set; }
 
-        public ObservableCollection<ForecastDayViewModel> Forecast { get; set; } = new ObservableCollection<ForecastDayViewModel>();
+        public ObservableCollection<ForecastDayViewModel> Forecast { get; } = new ObservableCollection<ForecastDayViewModel>();
     }
 }

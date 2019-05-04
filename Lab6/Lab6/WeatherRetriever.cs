@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Lab6.Models;
 using Newtonsoft.Json;
 using Lab6.Models.Forecast;
-using Lab6.Models.Forcast;
+using Lab6.Models.Auto;
 using System.Collections.ObjectModel;
 using Lab6.ViewModels;
 
