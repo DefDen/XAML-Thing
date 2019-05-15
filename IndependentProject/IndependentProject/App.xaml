@@ -5,4 +5,13 @@
     xmlns:local="using:IndependentProject"
     RequestedTheme="Light">
 
+    <Application.Resources>
+        <Style TargetType="TextBlock" x:Key="PageTitleStyle">
+            <Setter Property="FontSize" Value="48"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="20,20,0,0"/>
+        </Style>
+    </Application.Resources>
+    
 </Application>

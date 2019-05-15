@@ -25,6 +25,7 @@ namespace IndependentProject
         public MainPage()
         {
             this.InitializeComponent();
+            InnerFrame.Navigate(typeof(SearchPage));
         }
     }
 }
