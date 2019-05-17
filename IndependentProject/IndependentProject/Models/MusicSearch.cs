@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IndependentProject.NewFolder1
+namespace IndependentProject.Models
 {
     class Music
     {
@@ -63,7 +63,7 @@ namespace IndependentProject.NewFolder1
         public Body body { get; set; }
     }
 
-    public class MusicRootObject
+    public class MusicSearchRootObject
     {
         public Message message { get; set; }
     }

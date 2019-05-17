@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 
 namespace IndependentProject.Models
 {
-    class Lyrics
-    {
-       
-    }
 
     public class Header
     {
