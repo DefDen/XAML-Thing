@@ -11,7 +11,7 @@ namespace IndependentProject.Models
         
     }
 
-    public class Header
+    public class MusicSearchHeader
     {
         public int status_code { get; set; }
         public double execute_time { get; set; }
@@ -52,19 +52,19 @@ namespace IndependentProject.Models
         public Track track { get; set; }
     }
 
-    public class Body
+    public class MusicSearchBody
     {
         public List<TrackList> track_list { get; set; }
     }
 
-    public class Message
+    public class MusicSearchMessage
     {
-        public Header header { get; set; }
-        public Body body { get; set; }
+        public MusicSearchHeader header { get; set; }
+        public MusicSearchBody body { get; set; }
     }
 
     public class MusicSearchRootObject
     {
-        public Message message { get; set; }
+        public MusicSearchMessage message { get; set; }
     }
 }

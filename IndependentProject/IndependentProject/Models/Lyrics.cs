@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace IndependentProject.Models
 {
 
-    public class Header
+    public class LyricsHeader
     {
         public int status_code { get; set; }
         public double execute_time { get; set; }
@@ -24,19 +24,19 @@ namespace IndependentProject.Models
         public DateTime updated_time { get; set; }
     }
 
-    public class Body
+    public class LyricsBody
     {
         public Lyrics lyrics { get; set; }
     }
 
-    public class Message
+    public class LyricsMessage
     {
-        public Header header { get; set; }
-        public Body body { get; set; }
+        public LyricsHeader header { get; set; }
+        public LyricsBody body { get; set; }
     }
 
     public class LyricsRootObject
     {
-        public Message message { get; set; }
+        public LyricsMessage message { get; set; }
     }
 }
