@@ -1,8 +1,11 @@
-﻿using System;
+﻿using IndependentProject.Models;
+using IndependentProject.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,10 +25,25 @@ namespace IndependentProject
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public MusicSearchViewModel SearchViewModel { get; set; } = new MusicSearchViewModel();
+
         public MainPage()
         {
             this.InitializeComponent();
             InnerFrame.Navigate(typeof(SearchPage));
+        }
+
+        public async Task GetSearchResultsByTrack(String term, bool isTrackSearch)
+        {
+            Retriever retriever = new Retriever();
+            MusicSearchRootObject musicSearchRoot = await retriever.GetTrackSearchResults(term, isTrackSearch);
+
+            SearchViewModel.Music.Clear();
+
+            foreach (MusicSearchViewModel.Track track in musicSearchRoot.message.body.track_list)
+            {
+
+            }
         }
     }
 }
