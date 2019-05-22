@@ -45,7 +45,7 @@ namespace Lab6
         public async Task<ForecastRootObject> GetForecasts(string enteredStr)
         {
             HttpClient httpClient = new HttpClient();
-            string apiUrl = $"https://api.aerisapi.com/forecasts/{enteredStr}?limit=2&filter=day&client_id={apiKey}&client_secret={secret}";
+            string apiUrl = $"https://api.aerisapi.com/forecasts/{enteredStr}?limit=5&filter=day&client_id={apiKey}&client_secret={secret}";
 
             string responseString = await httpClient.GetStringAsync(apiUrl);
 

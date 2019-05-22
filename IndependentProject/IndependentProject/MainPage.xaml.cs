@@ -37,12 +37,19 @@ namespace IndependentProject
         {
             Retriever retriever = new Retriever();
             MusicSearchRootObject musicSearchRoot = await retriever.GetTrackSearchResults(term, isTrackSearch);
+            MusicSearchViewModel musicSearchViewModel = new MusicSearchViewModel();
 
             SearchViewModel.Music.Clear();
 
-            foreach (MusicSearchViewModel.Track track in musicSearchRoot.message.body.track_list)
+            foreach (Models.TrackList trackList in musicSearchRoot.message.body.track_list)
             {
-
+                MusicViewModel music = new MusicViewModel()
+                {
+                    TrackName = trackList.track.track_name,
+                    TrackId = "" + trackList.track.track_id,
+                    ArtistName = trackList.track.artist_name,
+                };
+                musicSearchViewModel.Music.Add(music);
             }
         }
     }
