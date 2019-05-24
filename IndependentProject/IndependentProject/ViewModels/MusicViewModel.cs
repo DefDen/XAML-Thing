@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IndependentProject.ViewModels
 {
-    class MusicViewModel
+    public class MusicViewModel
     {
         public string TrackName { get; set; }
         public string TrackId { get; set; }

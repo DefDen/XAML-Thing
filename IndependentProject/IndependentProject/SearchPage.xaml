@@ -11,8 +11,12 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock Style="{StaticResource PageTitleStyle}" Text="Search"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Text="Search by Song: " />
+            <TextBox/>
+        </StackPanel>
     </Grid>
 </Page>
