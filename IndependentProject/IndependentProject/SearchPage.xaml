@@ -15,9 +15,19 @@
         </Grid.RowDefinitions>
         <TextBlock Style="{StaticResource PageTitleStyle}" Text="Search"/>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <TextBlock Text="Search by Song: " Margin="20,10"/>
-            <TextBox/>
-            <Button Height="40" Width="100" Content="Search"/>
+            <TextBlock Text="Search by: " Margin="20,10"/>
+            <Button Name="SearchOptions" Style="{StaticResource SearchButtonStyle}" Content="Select">
+                <Button.Flyout>
+                    <Flyout>
+                        <StackPanel>
+                            <Button Name="SearchByArtist" Style="{StaticResource DropDownButtonStyle}" Content="Artist" Margin="0,0,0,10" Click="SearchByArtist_Click"/>
+                            <Button Name="SearchByTrack" Style="{StaticResource DropDownButtonStyle}" Content="Track" Click="SearchByTrack_Click"/>
+                        </StackPanel>
+                    </Flyout>
+                </Button.Flyout>
+            </Button>
+            <TextBox Name="SearchBox" Margin="20,0,0,0"/>
+            <Button Style="{StaticResource SearchButtonStyle}" Content="Search" Click="Search_Click"/>
         </StackPanel>
     </Grid>
 </Page>

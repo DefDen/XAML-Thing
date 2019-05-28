@@ -12,6 +12,17 @@
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="Margin" Value="20,20,0,0"/>
         </Style>
+
+        <Style TargetType="Button" x:Key="SearchButtonStyle">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="20,0,0,0"/>
+        </Style>
+        
+        <Style TargetType="Button" x:Key="DropDownButtonStyle">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="40"/>
+        </Style>
     </Application.Resources>
     
 </Application>

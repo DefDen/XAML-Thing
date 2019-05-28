@@ -26,5 +26,25 @@ namespace IndependentProject
         {
             this.InitializeComponent();
         }
+
+        private void SearchByArtist_Click(object sender, RoutedEventArgs e)
+        {
+            SearchOptions.Content = "Artist";
+        }
+
+        private void SearchByTrack_Click(object sender, RoutedEventArgs e)
+        {
+            SearchOptions.Content = "Track";
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            String SearchTerm = SearchBox.Text;
+            Retriever retriever = new Retriever();
+            if(SearchOptions.Content.Equals("Artist"))
+            {
+                
+            }
+        }
     }
 }
