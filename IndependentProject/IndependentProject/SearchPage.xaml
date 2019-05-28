@@ -15,8 +15,9 @@
         </Grid.RowDefinitions>
         <TextBlock Style="{StaticResource PageTitleStyle}" Text="Search"/>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <TextBlock Text="Search by Song: " />
+            <TextBlock Text="Search by Song: " Margin="20,10"/>
             <TextBox/>
+            <Button Height="40" Width="100" Content="Search"/>
         </StackPanel>
     </Grid>
 </Page>
