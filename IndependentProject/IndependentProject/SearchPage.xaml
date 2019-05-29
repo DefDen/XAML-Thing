@@ -28,6 +28,7 @@
             </Button>
             <TextBox Name="SearchBox" Margin="20,0,0,0"/>
             <Button Style="{StaticResource SearchButtonStyle}" Content="Search" Click="Search_Click"/>
+            <TextBlock Name="WarningBlock" Foreground="Red" Margin="20,10"/>
         </StackPanel>
     </Grid>
 </Page>

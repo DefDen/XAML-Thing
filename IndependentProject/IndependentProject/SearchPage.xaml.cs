@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IndependentProject.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,17 @@ namespace IndependentProject
     /// </summary>
     public sealed partial class SearchPage : Page
     {
+        public List<TrackList> SearchResults { get; set; } = new List<TrackList>();
+        public SharedData sharedData = new SharedData();
+
         public SearchPage()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            sharedData = (SharedData)e.Parameter;
         }
 
         private void SearchByArtist_Click(object sender, RoutedEventArgs e)
@@ -37,14 +46,31 @@ namespace IndependentProject
             SearchOptions.Content = "Track";
         }
 
-        private void Search_Click(object sender, RoutedEventArgs e)
+        private async void Search_Click(object sender, RoutedEventArgs e)
         {
             String SearchTerm = SearchBox.Text;
+            MusicSearchRootObject musicSearchRootObject = new MusicSearchRootObject();
             Retriever retriever = new Retriever();
-            if(SearchOptions.Content.Equals("Artist"))
+            if(SearchOptions.Content.Equals("Select"))
             {
-                
+                WarningBlock.Text = "Please select a search option";
+                return;
             }
+            if (SearchTerm.Equals(""))
+            {
+                WarningBlock.Text = "Please enter a search term";
+                return;
+            }
+            WarningBlock.Text = "";
+            if (SearchOptions.Content.Equals("Artist"))
+            {
+                musicSearchRootObject = await retriever.GetTrackSearchResults(SearchTerm, false);
+            }
+            else
+            {
+                musicSearchRootObject = await retriever.GetTrackSearchResults(SearchTerm, true);
+            }
+            SearchResults = musicSearchRootObject.message.body.track_list;
         }
     }
 }

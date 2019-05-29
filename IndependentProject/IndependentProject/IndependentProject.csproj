@@ -106,6 +106,7 @@
     <Compile Include="SearchPage.xaml.cs">
       <DependentUpon>SearchPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SharedData.cs" />
     <Compile Include="SongPage.xaml.cs">
       <DependentUpon>SongPage.xaml</DependentUpon>
     </Compile>
