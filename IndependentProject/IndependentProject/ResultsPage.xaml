@@ -14,5 +14,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Style="{StaticResource PageTitleStyle}" Text="Results"/>
+        <StackPanel
     </Grid>
 </Page>

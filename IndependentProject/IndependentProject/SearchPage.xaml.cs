@@ -35,7 +35,7 @@ namespace IndependentProject
         {
             sharedData = (SharedData)e.Parameter;
         }
-
+    
         private void SearchByArtist_Click(object sender, RoutedEventArgs e)
         {
             SearchOptions.Content = "Artist";
@@ -71,6 +71,8 @@ namespace IndependentProject
                 musicSearchRootObject = await retriever.GetTrackSearchResults(SearchTerm, true);
             }
             SearchResults = musicSearchRootObject.message.body.track_list;
+            sharedData.TrackList = SearchResults;
+            this.Frame.Navigate(typeof(ResultsPage), sharedData);
         }
     }
 }

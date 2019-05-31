@@ -22,9 +22,16 @@ namespace IndependentProject
     /// </summary>
     public sealed partial class ResultsPage : Page
     {
+        public SharedData sharedData = new SharedData();
+
         public ResultsPage()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            sharedData = (SharedData)e.Parameter;
         }
     }
 }

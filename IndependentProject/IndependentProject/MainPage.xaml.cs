@@ -26,11 +26,12 @@ namespace IndependentProject
     public sealed partial class MainPage : Page
     {
         public MusicSearchViewModel SearchViewModel { get; set; } = new MusicSearchViewModel();
+        public SharedData sharedData = new SharedData();
 
         public MainPage()
         {
             this.InitializeComponent();
-            InnerFrame.Navigate(typeof(SearchPage));
+            InnerFrame.Navigate(typeof(SearchPage), sharedData);
         }
 
         public async Task GetSearchResultsByTrack(String term, bool isTrackSearch)
