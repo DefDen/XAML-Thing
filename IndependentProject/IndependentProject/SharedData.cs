@@ -1,4 +1,5 @@
 ﻿using IndependentProject.Models;
+using IndependentProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace IndependentProject
 {
     public class SharedData
     {
-        public List<TrackList> TrackList { get; set; } = new List<TrackList>();
+        public MusicSearchViewModel Results { get; set; } = new MusicSearchViewModel();
     }
 }

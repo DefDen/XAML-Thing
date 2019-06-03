@@ -1,4 +1,5 @@
 ﻿using IndependentProject.Models;
+using IndependentProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,7 +25,7 @@ namespace IndependentProject
     public sealed partial class SearchPage : Page
     {
         public List<TrackList> SearchResults { get; set; } = new List<TrackList>();
-        public SharedData sharedData = new SharedData();
+        public SharedData sharedData;
 
         public SearchPage()
         {
@@ -62,6 +63,7 @@ namespace IndependentProject
                 return;
             }
             WarningBlock.Text = "";
+
             if (SearchOptions.Content.Equals("Artist"))
             {
                 musicSearchRootObject = await retriever.GetTrackSearchResults(SearchTerm, false);
@@ -70,8 +72,20 @@ namespace IndependentProject
             {
                 musicSearchRootObject = await retriever.GetTrackSearchResults(SearchTerm, true);
             }
+
             SearchResults = musicSearchRootObject.message.body.track_list;
-            sharedData.TrackList = SearchResults;
+            MusicSearchViewModel results = new MusicSearchViewModel();
+            foreach(TrackList trackList in SearchResults)
+            {
+                MusicViewModel music = new MusicViewModel()
+                {
+                    TrackName = trackList.track.track_name,
+                    TrackId = "" + trackList.track.track_id,
+                    ArtistName = trackList.track.artist_name
+                };
+                results.Music.Add(music);
+            }
+            sharedData.Results = results;
             this.Frame.Navigate(typeof(ResultsPage), sharedData);
         }
     }
