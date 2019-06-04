@@ -73,9 +73,11 @@ namespace IndependentProject
                 musicSearchRootObject = await retriever.GetTrackSearchResults(SearchTerm, true);
             }
 
+            sharedData.Results.Music.Clear();
+
             SearchResults = musicSearchRootObject.message.body.track_list;
-            MusicSearchViewModel results = new MusicSearchViewModel();
-            foreach(TrackList trackList in SearchResults)
+            
+            foreach (TrackList trackList in SearchResults)
             {
                 MusicViewModel music = new MusicViewModel()
                 {
@@ -83,9 +85,12 @@ namespace IndependentProject
                     TrackId = "" + trackList.track.track_id,
                     ArtistName = trackList.track.artist_name
                 };
-                results.Music.Add(music);
+                sharedData.Results.Music.Add(music);
             }
-            sharedData.Results = results;
+
+            MusicSearchViewModel musicSearchViewModel = sharedData.Results;
+
+
             this.Frame.Navigate(typeof(ResultsPage), sharedData);
         }
     }
