@@ -25,33 +25,12 @@ namespace IndependentProject
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public MusicSearchViewModel SearchViewModel { get; set; } = new MusicSearchViewModel();
         public SharedData sharedData = new SharedData();
 
         public MainPage()
         {
             this.InitializeComponent();
             InnerFrame.Navigate(typeof(SearchPage), sharedData);
-        }
-
-        public async Task GetSearchResultsByTrack(String term, bool isTrackSearch)
-        {
-            Retriever retriever = new Retriever();
-            MusicSearchRootObject musicSearchRoot = await retriever.GetTrackSearchResults(term, isTrackSearch);
-            MusicSearchViewModel musicSearchViewModel = new MusicSearchViewModel();
-
-            SearchViewModel.Music.Clear();
-
-            foreach (Models.TrackList trackList in musicSearchRoot.message.body.track_list)
-            {
-                MusicViewModel music = new MusicViewModel()
-                {
-                    TrackName = trackList.track.track_name,
-                    TrackId = "" + trackList.track.track_id,
-                    ArtistName = trackList.track.artist_name,
-                };
-                musicSearchViewModel.Music.Add(music);
-            }
         }
     }
 }

@@ -62,6 +62,7 @@ namespace IndependentProject
                 WarningBlock.Text = "Please enter a search term";
                 return;
             }
+
             WarningBlock.Text = "";
 
             if (SearchOptions.Content.Equals("Artist"))
@@ -73,7 +74,8 @@ namespace IndependentProject
                 musicSearchRootObject = await retriever.GetTrackSearchResults(SearchTerm, true);
             }
 
-            sharedData.Results.Music.Clear();
+            sharedData.Music.Clear();
+            sharedData.SearchTerm = SearchTerm;
 
             SearchResults = musicSearchRootObject.message.body.track_list;
             
@@ -85,11 +87,8 @@ namespace IndependentProject
                     TrackId = "" + trackList.track.track_id,
                     ArtistName = trackList.track.artist_name
                 };
-                sharedData.Results.Music.Add(music);
+                sharedData.Music.Add(music);
             }
-
-            MusicSearchViewModel musicSearchViewModel = sharedData.Results;
-
 
             this.Frame.Navigate(typeof(ResultsPage), sharedData);
         }

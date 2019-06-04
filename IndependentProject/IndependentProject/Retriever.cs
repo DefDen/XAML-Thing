@@ -20,11 +20,11 @@ namespace IndependentProject
 
             if(isTrackSearch)
             {
-                apiUrl = $"http://api.musixmatch.com/ws/1.1/track.search?q_track={term}&apikey={musixMatchKey}";
+                apiUrl = $"http://api.musixmatch.com/ws/1.1/track.search?q_track={term}&s_track_rating&s_artist_rating&page_size=100&f_has_lyrics&apikey={musixMatchKey}";
             }
             else
             {
-                apiUrl = $"http://api.musixmatch.com/ws/1.1/track.search?q_artist={term}&apikey={musixMatchKey}";
+                apiUrl = $"http://api.musixmatch.com/ws/1.1/track.search?q_artist={term}&s_track_rating&s_artist_rating&page_size=100&f_has_lyrics&apikey={musixMatchKey}";
             }
 
             string responeString = await httpClient.GetStringAsync(apiUrl);

@@ -112,7 +112,6 @@
     </Compile>
     <Compile Include="ViewModels\InfoViewModel.cs" />
     <Compile Include="ViewModels\LyricsViewModel.cs" />
-    <Compile Include="ViewModels\MusicSearchViewModel.cs" />
     <Compile Include="ViewModels\MusicViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

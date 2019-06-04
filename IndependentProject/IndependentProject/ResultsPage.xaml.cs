@@ -34,6 +34,7 @@ namespace IndependentProject
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             sharedData = (SharedData)e.Parameter;
+            Title.Text = "Results for " + sharedData.SearchTerm;
         }
     }
 }
