@@ -92,6 +92,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\MusicFromId.cs" />
     <Compile Include="Retriever.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -111,7 +112,6 @@
       <DependentUpon>SongPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\InfoViewModel.cs" />
-    <Compile Include="ViewModels\LyricsViewModel.cs" />
     <Compile Include="ViewModels\MusicViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

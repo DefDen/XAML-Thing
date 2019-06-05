@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
         <TextBlock Name="Title" Style="{StaticResource PageTitleStyle}" Text="Results"/>
 
-        <GridView Grid.Row="1" ItemsSource="{x:Bind sharedData.Music}" HorizontalAlignment="Center">
+        <GridView Grid.Row="1" ItemsSource="{x:Bind sharedData.Music}" HorizontalAlignment="Center" IsItemClickEnabled="True" ItemClick="GridView_ItemClick">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:MusicViewModel">
                     <StackPanel Margin="20,0,20,20">

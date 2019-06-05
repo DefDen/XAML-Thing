@@ -36,5 +36,13 @@ namespace IndependentProject
             sharedData = (SharedData)e.Parameter;
             Title.Text = "Results for " + sharedData.SearchTerm;
         }
+
+        private void GridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            MusicViewModel music = (MusicViewModel)e.ClickedItem;
+            sharedData.TrackId = "" + music.TrackId;
+            sharedData.CommonTrackId = "" + music.CommonTrackId;
+            this.Frame.Navigate(typeof(SongPage), sharedData);
+        }
     }
 }

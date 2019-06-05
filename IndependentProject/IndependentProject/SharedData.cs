@@ -13,5 +13,7 @@ namespace IndependentProject
     {
         public ObservableCollection<MusicViewModel> Music { get; } = new ObservableCollection<MusicViewModel>();
         public String SearchTerm = "";
+        public String TrackId = "";
+        public String CommonTrackId = "";
     }
 }

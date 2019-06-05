@@ -85,6 +85,7 @@ namespace IndependentProject
                 {
                     TrackName = trackList.track.track_name,
                     TrackId = "" + trackList.track.track_id,
+                    CommonTrackId = "" + trackList.track.commontrack_id,
                     ArtistName = trackList.track.artist_name
                 };
                 sharedData.Music.Add(music);

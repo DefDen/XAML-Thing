@@ -45,5 +45,17 @@ namespace IndependentProject
 
             return results;
         }
+
+        public async Task<MusicFromIdRootObject> GetMusic(string trackId)
+        {
+            HttpClient httpClient = new HttpClient();
+            String apiUrl = $"https://api.musixmatch.com/ws/1.1/track.get?commontrack_id={trackId}&apikey={musixMatchKey}";
+
+            string responseString = await httpClient.GetStringAsync(apiUrl);
+
+            MusicFromIdRootObject results = JsonConvert.DeserializeObject<MusicFromIdRootObject>(responseString);
+
+            return results;
+        }
     }
 }
