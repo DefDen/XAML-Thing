@@ -23,6 +23,15 @@
             <Setter Property="Width" Value="100"/>
             <Setter Property="Height" Value="40"/>
         </Style>
+
+        <Style TargetType="TextBox" x:Key="SearchTextBox">
+            <Setter Property="Margin" Value="20,0,0,0"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="BackButtonStyle">
+            <Setter Property="Margin" Value="0,0,20,0"/>
+            <Setter Property="Content" Value="Back"/>
+        </Style>
         
     </Application.Resources>
     

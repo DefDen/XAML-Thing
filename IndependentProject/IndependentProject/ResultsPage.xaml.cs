@@ -44,5 +44,10 @@ namespace IndependentProject
             sharedData.CommonTrackId = "" + music.CommonTrackId;
             this.Frame.Navigate(typeof(SongPage), sharedData);
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(SearchPage), sharedData);
+        }
     }
 }

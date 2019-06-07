@@ -12,6 +12,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock Style="{StaticResource PageTitleStyle}" Text="Search"/>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
@@ -26,9 +29,18 @@
                     </Flyout>
                 </Button.Flyout>
             </Button>
-            <TextBox Name="SearchBox" Margin="20,0,0,0"/>
+            <TextBox Name="SearchBox" Style="{StaticResource SearchTextBox}"/>
             <Button Style="{StaticResource SearchButtonStyle}" Content="Search" Click="Search_Click"/>
             <TextBlock Name="WarningBlock" Foreground="Red" Margin="20,10"/>
+        </StackPanel>
+        <TextBlock Grid.Row="3" Text="Advanced Search" Style="{StaticResource PageTitleStyle}"/>
+        <StackPanel Grid.Row="4" Orientation="Horizontal">
+            <TextBlock Text="Search for:" Margin="20,10" />
+            <TextBox Name="AdvancedSearchTrack" Style="{StaticResource SearchTextBox}"/>
+            <TextBlock Text=" by " Margin="20,10,0,0"/>
+            <TextBox Name="AdvancedSearchArtist" Style="{StaticResource SearchTextBox}"/>
+            <Button Style="{StaticResource SearchButtonStyle}" Content="Search" Click="AdvancedSearch_Click"/>
+            <TextBlock Name="AdvancedWarningBlock" Foreground="Red" Margin="20,10"/>
         </StackPanel>
     </Grid>
 </Page>

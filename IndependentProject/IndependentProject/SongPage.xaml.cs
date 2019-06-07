@@ -49,9 +49,21 @@ namespace IndependentProject
                 AlbumName = music.message.body.track.album_name,
                 TrackName = music.message.body.track.track_name,
                 ArtistName = music.message.body.track.artist_name,
-                LyricsString = lyrics.message.body.lyrics.lyrics_body
+                LyricsString = lyrics.message.body.lyrics.lyrics_body,
             };
             Title.Text = infoViewModel.TrackName + " by " + infoViewModel.ArtistName;
+            AlbumName.Text = infoViewModel.AlbumName;
+            Lyrics.Text = infoViewModel.LyricsString;
+        }
+
+        private void SearchPageButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(SearchPage), sharedData);
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(ResultsPage), sharedData);
         }
     }
 }

@@ -12,5 +12,6 @@ namespace IndependentProject.ViewModels
         public String TrackName { get; set; }
         public String ArtistName { get; set; }
         public String LyricsString { get; set; }
+        public String Title { get; set; }
     }
 }

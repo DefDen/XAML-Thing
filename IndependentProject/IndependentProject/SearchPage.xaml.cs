@@ -35,6 +35,15 @@ namespace IndependentProject
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             sharedData = (SharedData)e.Parameter;
+            if(sharedData.isAdvancedSearch)
+            {
+                AdvancedSearchArtist.Text = sharedData.AdvancedSearchBoxArtist;
+                AdvancedSearchTrack.Text = sharedData.AdvancedSearchBoxTrack;
+            }
+            else
+            {
+                SearchBox.Text = sharedData.SearchBoxTerm;
+            }
         }
     
         private void SearchByArtist_Click(object sender, RoutedEventArgs e)
@@ -49,6 +58,9 @@ namespace IndependentProject
 
         private async void Search_Click(object sender, RoutedEventArgs e)
         {
+            sharedData.isAdvancedSearch = false;
+            sharedData.SearchBoxTerm = SearchBox.Text;
+
             String SearchTerm = SearchBox.Text;
             MusicSearchRootObject musicSearchRootObject = new MusicSearchRootObject();
             Retriever retriever = new Retriever();
@@ -67,11 +79,11 @@ namespace IndependentProject
 
             if (SearchOptions.Content.Equals("Artist"))
             {
-                musicSearchRootObject = await retriever.GetTrackSearchResults(SearchTerm, false);
+                musicSearchRootObject = await retriever.GetTrackSearchResults(SearchTerm, "", false, false);
             }
             else
             {
-                musicSearchRootObject = await retriever.GetTrackSearchResults(SearchTerm, true);
+                musicSearchRootObject = await retriever.GetTrackSearchResults(SearchTerm, "", false, true);
             }
 
             sharedData.Music.Clear();
@@ -79,6 +91,44 @@ namespace IndependentProject
 
             SearchResults = musicSearchRootObject.message.body.track_list;
             
+            foreach (TrackList trackList in SearchResults)
+            {
+                MusicViewModel music = new MusicViewModel()
+                {
+                    TrackName = trackList.track.track_name,
+                    TrackId = "" + trackList.track.track_id,
+                    CommonTrackId = "" + trackList.track.commontrack_id,
+                    ArtistName = trackList.track.artist_name
+                };
+                sharedData.Music.Add(music);
+            }
+
+            this.Frame.Navigate(typeof(ResultsPage), sharedData);
+        }
+
+        private async void AdvancedSearch_Click(object sender, RoutedEventArgs e)
+        {
+            sharedData.isAdvancedSearch = true;
+            sharedData.AdvancedSearchBoxTrack = AdvancedSearchTrack.Text;
+            sharedData.AdvancedSearchBoxArtist = AdvancedSearchArtist.Text;
+
+            MusicSearchRootObject musicSearchRootObject = new MusicSearchRootObject();
+            Retriever retriever = new Retriever();
+            if (AdvancedSearchTrack.Text.Equals("") && AdvancedSearchArtist.Text.Equals(""))
+            {
+                AdvancedWarningBlock.Text = "Please enter a search term";
+                return;
+            }
+
+            AdvancedWarningBlock.Text = "";
+
+            musicSearchRootObject = await retriever.GetTrackSearchResults(AdvancedSearchTrack.Text, AdvancedSearchArtist.Text, true, true);
+
+            sharedData.Music.Clear();
+            sharedData.SearchTerm = AdvancedSearchTrack.Text + " by " + AdvancedSearchArtist.Text;
+
+            SearchResults = musicSearchRootObject.message.body.track_list;
+
             foreach (TrackList trackList in SearchResults)
             {
                 MusicViewModel music = new MusicViewModel()

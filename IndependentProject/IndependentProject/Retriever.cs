@@ -13,20 +13,26 @@ namespace IndependentProject
     {
         private string musixMatchKey = "2eb5dcbf3889a59f9a6ff077176d906a";
 
-        public async Task<MusicSearchRootObject> GetTrackSearchResults(string term, bool isTrackSearch)
-        {  
+        public async Task<MusicSearchRootObject> GetTrackSearchResults(string term, string term2, bool isAdvancedSearch, bool isTrackSearch)
+        {
             HttpClient httpClient = new HttpClient();
             String apiUrl = "";
 
-            if(isTrackSearch)
+            if (isAdvancedSearch)
             {
-                apiUrl = $"http://api.musixmatch.com/ws/1.1/track.search?q_track={term}&s_track_rating&s_artist_rating&page_size=100&f_has_lyrics&apikey={musixMatchKey}";
+                apiUrl = $"http://api.musixmatch.com/ws/1.1/track.search?q_track={term}&q_artist={term2}&s_track_rating&s_artist_rating&page_size=100&f_has_lyrics&f_lyrics_language=en&apikey={musixMatchKey}";
             }
             else
-            {
-                apiUrl = $"http://api.musixmatch.com/ws/1.1/track.search?q_artist={term}&s_track_rating&s_artist_rating&page_size=100&f_has_lyrics&apikey={musixMatchKey}";
+            { 
+                if (isTrackSearch)
+                {
+                    apiUrl = $"http://api.musixmatch.com/ws/1.1/track.search?q_track={term}&s_track_rating&s_artist_rating&page_size=100&f_has_lyrics&f_lyrics_language=en&apikey={musixMatchKey}";
+                }
+                else
+                {
+                    apiUrl = $"http://api.musixmatch.com/ws/1.1/track.search?q_artist={term}&s_track_rating&s_artist_rating&page_size=100&f_has_lyrics&f_lyrics_language=en&apikey={musixMatchKey}";
+                }
             }
-
             string responeString = await httpClient.GetStringAsync(apiUrl);
 
             MusicSearchRootObject results = JsonConvert.DeserializeObject<MusicSearchRootObject>(responeString);
@@ -37,7 +43,7 @@ namespace IndependentProject
         public async Task<LyricsRootObject> GetLyrics(string trackId)
         {
             HttpClient httpClient = new HttpClient();
-            String apiUrl = $"https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id={trackId}&apikey={musixMatchKey}";
+            String apiUrl = $"http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id={trackId}&apikey={musixMatchKey}";
 
             string responseString = await httpClient.GetStringAsync(apiUrl);
 
