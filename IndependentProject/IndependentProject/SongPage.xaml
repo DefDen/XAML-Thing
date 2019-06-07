@@ -13,13 +13,14 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Name="Title" Text="{x:Bind infoViewModel.Title}" Style="{StaticResource PageTitleStyle}"/>
+        <TextBlock Name="Title" Grid.Row="1" Text="{x:Bind infoViewModel.Title}" Margin="20,0,20,0" Style="{StaticResource PageTitleStyle}"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Name="SearchPageButton" Content="Search" Style="{StaticResource BackButtonStyle}" Click="SearchPageButton_Click"/>
             <Button Name="BackButton" Style="{StaticResource BackButtonStyle}" Click="BackButton_Click"/>
         </StackPanel>
-        <TextBlock Name="AlbumName" Grid.Row="1" Text="{x:Bind infoViewModel.AlbumName, Mode=OneWay}" Margin="20,0,0,0"/>
-        <TextBlock Name="Lyrics" Grid.Row="2" Margin="20,0,0,0"/>
+        <TextBlock Name="AlbumName" Grid.Row="2" FontSize="32" Margin="20,0,0,0"/>
+        <TextBlock Name="Lyrics" Grid.Row="3" Margin="20,0,0,0"/>
     </Grid>
 </Page>

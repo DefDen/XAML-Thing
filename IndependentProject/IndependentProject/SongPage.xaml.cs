@@ -54,6 +54,10 @@ namespace IndependentProject
             Title.Text = infoViewModel.TrackName + " by " + infoViewModel.ArtistName;
             AlbumName.Text = infoViewModel.AlbumName;
             Lyrics.Text = infoViewModel.LyricsString;
+            if(Lyrics.Text.Equals(""))
+            {
+                Lyrics.Text = "No lyrics availible";
+            }
         }
 
         private void SearchPageButton_Click(object sender, RoutedEventArgs e)

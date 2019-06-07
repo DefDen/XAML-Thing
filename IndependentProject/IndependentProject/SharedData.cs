@@ -17,6 +17,7 @@ namespace IndependentProject
         public String CommonTrackId = "";
         public String SearchBoxTerm = "";
         public Boolean isAdvancedSearch = false;
+        public Boolean isArtistSearch = false;
         public String AdvancedSearchBoxTrack = "";
         public String AdvancedSearchBoxArtist = "";
     }
