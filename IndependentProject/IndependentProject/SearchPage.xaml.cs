@@ -43,6 +43,14 @@ namespace IndependentProject
             else
             {
                 SearchBox.Text = sharedData.SearchBoxTerm;
+                if(sharedData.isArtistSearch == true)
+                {
+                    SearchOptions.Content = "Artist";
+                }
+                else
+                {
+                    SearchOptions.Content = "Track";
+                }
             }
         }
     
@@ -79,10 +87,12 @@ namespace IndependentProject
 
             if (SearchOptions.Content.Equals("Artist"))
             {
+                sharedData.isArtistSearch = true;
                 musicSearchRootObject = await retriever.GetTrackSearchResults(SearchTerm, "", false, false);
             }
             else
             {
+                sharedData.isArtistSearch = false;
                 musicSearchRootObject = await retriever.GetTrackSearchResults(SearchTerm, "", false, true);
             }
 

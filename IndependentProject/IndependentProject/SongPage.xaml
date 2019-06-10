@@ -15,12 +15,25 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <TextBlock Name="Title" Grid.Row="1" Text="{x:Bind infoViewModel.Title}" Margin="20,0,20,0" Style="{StaticResource PageTitleStyle}"/>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Name="SearchPageButton" Content="Search" Style="{StaticResource BackButtonStyle}" Click="SearchPageButton_Click"/>
-            <Button Name="BackButton" Style="{StaticResource BackButtonStyle}" Click="BackButton_Click"/>
+        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Grid.RowSpan="2">
+            <Button Name="SearchPageButton" Content="Search" Style="{StaticResource BackButtonStyle}" Click="SearchPageButton_Click" Grid.RowSpan="2"/>
+            <Button Name="BackButton" Style="{StaticResource BackButtonStyle}" Click="BackButton_Click" Grid.RowSpan="2"/>
         </StackPanel>
         <TextBlock Name="AlbumName" Grid.Row="2" FontSize="32" Margin="20,0,0,0"/>
         <TextBlock Name="Lyrics" Grid.Row="3" Margin="20,0,0,0"/>
+        <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right">
+            <TextBlock Text="Listen here:" Margin="10,0"/>
+            <HyperlinkButton Name="YouTubeButton">
+                <Image Source="Assets/YouTubeLogo.png"  Height="100"/>
+            </HyperlinkButton>
+            <HyperlinkButton Name="SpotifyButton">
+                <Image Source="Assets/SpotifyLogo.png" Height="60" Margin="20,0"/>
+            </HyperlinkButton>
+        </StackPanel>
     </Grid>
 </Page>

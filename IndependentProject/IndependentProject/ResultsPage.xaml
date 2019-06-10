@@ -16,7 +16,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Name="Title" Grid.Row="1" Style="{StaticResource PageTitleStyle}" Text="Results"/>
-        <Button Name="BackButton" HorizontalAlignment="Right" Style="{StaticResource BackButtonStyle}" Click="BackButton_Click"/>
+        <Button Name="BackButton" Grid.Column="1" Grid.ColumnSpan="1" HorizontalAlignment="Right" Style="{StaticResource BackButtonStyle}" Click="BackButton_Click"/>
         <GridView Grid.Row="2" ItemsSource="{x:Bind sharedData.Music}" HorizontalAlignment="Left" IsItemClickEnabled="True" ItemClick="GridView_ItemClick">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:MusicViewModel">

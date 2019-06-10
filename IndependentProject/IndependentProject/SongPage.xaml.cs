@@ -58,6 +58,8 @@ namespace IndependentProject
             {
                 Lyrics.Text = "No lyrics availible";
             }
+            YouTubeButton.NavigateUri = new Uri("https://www.youtube.com/results?search_query=" + Title.Text);
+            SpotifyButton.NavigateUri = new Uri("https://open.spotify.com/search/results/" + Title.Text);
         }
 
         private void SearchPageButton_Click(object sender, RoutedEventArgs e)
