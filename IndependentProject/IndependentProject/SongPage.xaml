@@ -25,6 +25,7 @@
             <Button Name="BackButton" Style="{StaticResource BackButtonStyle}" Click="BackButton_Click" Grid.RowSpan="2"/>
         </StackPanel>
         <TextBlock Name="AlbumName" Grid.Row="2" TextWrapping="WrapWholeWords" FontSize="32" Margin="20,0,0,0"/>
+        
         <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Visible" Margin="20,0,0,0">
             <TextBlock Name="Lyrics"/>
         </ScrollViewer>

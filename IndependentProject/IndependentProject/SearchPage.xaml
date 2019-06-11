@@ -5,11 +5,13 @@
     xmlns:local="using:IndependentProject"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:IndependentProject.ViewModels"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -41,6 +43,19 @@
             <TextBox Name="AdvancedSearchArtist" Style="{StaticResource SearchTextBox}"/>
             <Button Style="{StaticResource SearchButtonStyle}" Content="Search" Click="AdvancedSearch_Click"/>
             <TextBlock Name="AdvancedWarningBlock" Foreground="Red" Margin="20,10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Orientation="Vertical">
+            <TextBlock Text="Favorites" Style="{StaticResource PageTitleStyle}"/>
+            <ListView Name="" ItemsSource="{x:Bind sharedData.Favorites}" IsItemClickEnabled="True" ItemClick="ListView_ItemClick">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="data:MusicViewModel">
+                        <StackPanel Margin="20" HorizontalAlignment="Left">
+                            <TextBlock Text="{x:Bind TrackName}" Style="{StaticResource ResultsTextStyle}"/>
+                            <TextBlock Text="{x:Bind ArtistName}" Style="{StaticResource ResultsTextStyle}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackPanel>
     </Grid>
 </Page>

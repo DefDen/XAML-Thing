@@ -41,7 +41,7 @@ namespace IndependentProject
             }
         }
 
-        private void GridView_ItemClick(object sender, ItemClickEventArgs e)
+        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             MusicViewModel music = (MusicViewModel)e.ClickedItem;
             sharedData.TrackId = "" + music.TrackId;

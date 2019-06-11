@@ -12,6 +12,7 @@ namespace IndependentProject
     public class SharedData
     {
         public ObservableCollection<MusicViewModel> Music { get; } = new ObservableCollection<MusicViewModel>();
+        public ObservableCollection<MusicViewModel> Favorites { get; } = new ObservableCollection<MusicViewModel>();
         public String SearchTerm = "";
         public String TrackId = "";
         public String CommonTrackId = "";
