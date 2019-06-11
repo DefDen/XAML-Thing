@@ -52,7 +52,7 @@ namespace IndependentProject
                 LyricsString = lyrics.message.body.lyrics.lyrics_body,
             };
             Title.Text = infoViewModel.TrackName + " by " + infoViewModel.ArtistName;
-            AlbumName.Text = infoViewModel.AlbumName;
+            AlbumName.Text = "Album: " + infoViewModel.AlbumName;
             Lyrics.Text = infoViewModel.LyricsString;
             if(Lyrics.Text.Equals(""))
             {

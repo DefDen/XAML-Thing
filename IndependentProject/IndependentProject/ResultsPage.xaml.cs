@@ -35,6 +35,10 @@ namespace IndependentProject
         {
             sharedData = (SharedData)e.Parameter;
             Title.Text = "Results for " + sharedData.SearchTerm;
+            if(sharedData.Music.Count == 0)
+            {
+                NoResultsText.Visibility = Visibility.Visible;
+            }
         }
 
         private void GridView_ItemClick(object sender, ItemClickEventArgs e)

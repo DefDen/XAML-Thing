@@ -124,10 +124,19 @@ namespace IndependentProject
 
             MusicSearchRootObject musicSearchRootObject = new MusicSearchRootObject();
             Retriever retriever = new Retriever();
-            if (AdvancedSearchTrack.Text.Equals("") && AdvancedSearchArtist.Text.Equals(""))
+
+            if(AdvancedSearchTrack.Text.Equals("") || AdvancedSearchArtist.Text.Equals(""))
             {
-                AdvancedWarningBlock.Text = "Please enter a search term";
-                return;
+                sharedData.noArtistOrTrack = true;
+                if (AdvancedSearchTrack.Text.Equals("") && AdvancedSearchArtist.Text.Equals(""))
+                {
+                    AdvancedWarningBlock.Text = "Please enter a search term";
+                    return;
+                }
+            }
+            else
+            {
+                sharedData.noArtistOrTrack = false;
             }
 
             AdvancedWarningBlock.Text = "";
@@ -135,7 +144,15 @@ namespace IndependentProject
             musicSearchRootObject = await retriever.GetTrackSearchResults(AdvancedSearchTrack.Text, AdvancedSearchArtist.Text, true, true);
 
             sharedData.Music.Clear();
-            sharedData.SearchTerm = AdvancedSearchTrack.Text + " by " + AdvancedSearchArtist.Text;
+
+            if(sharedData.noArtistOrTrack)
+            {
+                sharedData.SearchTerm = AdvancedSearchTrack.Text + AdvancedSearchArtist.Text;
+            }
+            else
+            {
+                sharedData.SearchTerm = AdvancedSearchTrack.Text + " by " + AdvancedSearchArtist.Text;
+            }
 
             SearchResults = musicSearchRootObject.message.body.track_list;
 

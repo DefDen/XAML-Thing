@@ -16,17 +16,19 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Name="Title" Grid.Row="1" Text="{x:Bind infoViewModel.Title}" Margin="20,0,20,0" Style="{StaticResource PageTitleStyle}"/>
-        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Grid.RowSpan="2">
+        <TextBlock Name="Title" Grid.Row="1" Text="{x:Bind infoViewModel.Title}" Margin="20,20,20,0" Style="{StaticResource PageTitleStyle}"/>
+        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.RowSpan="2">
             <Button Name="SearchPageButton" Content="Search" Style="{StaticResource BackButtonStyle}" Click="SearchPageButton_Click" Grid.RowSpan="2"/>
             <Button Name="BackButton" Style="{StaticResource BackButtonStyle}" Click="BackButton_Click" Grid.RowSpan="2"/>
         </StackPanel>
-        <TextBlock Name="AlbumName" Grid.Row="2" FontSize="32" Margin="20,0,0,0"/>
-        <TextBlock Name="Lyrics" Grid.Row="3" Margin="20,0,0,0"/>
-        <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right">
+        <TextBlock Name="AlbumName" Grid.Row="2" TextWrapping="WrapWholeWords" FontSize="32" Margin="20,0,0,0"/>
+        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Visible" Margin="20,0,0,0">
+            <TextBlock Name="Lyrics"/>
+        </ScrollViewer>
+        <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right">
             <TextBlock Text="Listen here:" Margin="10,0"/>
             <HyperlinkButton Name="YouTubeButton">
                 <Image Source="Assets/YouTubeLogo.png"  Height="100"/>

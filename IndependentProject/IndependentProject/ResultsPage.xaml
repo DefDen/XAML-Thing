@@ -21,11 +21,12 @@
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:MusicViewModel">
                     <StackPanel Margin="20" HorizontalAlignment="Left">
-                        <TextBlock Text="{x:Bind TrackName}" Width="Auto" HorizontalAlignment="Left"/>
-                        <TextBlock Text="{x:Bind ArtistName}" Width="Auto" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{x:Bind TrackName}" Style="{StaticResource ResultsTextStyle}"/>
+                        <TextBlock Text="{x:Bind ArtistName}" Style="{StaticResource ResultsTextStyle}"/>
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
+        <TextBlock Name="NoResultsText" Grid.Row="2" Text="No results" Margin="20,0,0,0" Visibility="Collapsed"/>
     </Grid>
 </Page>
