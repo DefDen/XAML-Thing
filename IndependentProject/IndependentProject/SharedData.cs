@@ -12,7 +12,7 @@ namespace IndependentProject
     public class SharedData
     {
         public ObservableCollection<MusicViewModel> Music { get; } = new ObservableCollection<MusicViewModel>();
-        public ObservableCollection<MusicViewModel> Favorites { get; } = new ObservableCollection<MusicViewModel>();
+        public ObservableCollection<MusicViewModel> History { get; } = new ObservableCollection<MusicViewModel>();
         public String SearchTerm = "";
         public String TrackId = "";
         public String CommonTrackId = "";
@@ -20,6 +20,7 @@ namespace IndependentProject
         public Boolean isAdvancedSearch = true;
         public Boolean noArtistOrTrack = false;
         public Boolean isArtistSearch = false;
+        public Boolean fromHistory = false;
         public String AdvancedSearchBoxTrack = "";
         public String AdvancedSearchBoxArtist = "";
     }

@@ -16,7 +16,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Style="{StaticResource PageTitleStyle}" Text="Search"/>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
@@ -45,17 +45,22 @@
             <TextBlock Name="AdvancedWarningBlock" Foreground="Red" Margin="20,10"/>
         </StackPanel>
         <StackPanel Grid.Row="5" Orientation="Vertical">
-            <TextBlock Text="Favorites" Style="{StaticResource PageTitleStyle}"/>
-            <ListView Name="" ItemsSource="{x:Bind sharedData.Favorites}" IsItemClickEnabled="True" ItemClick="ListView_ItemClick">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="data:MusicViewModel">
-                        <StackPanel Margin="20" HorizontalAlignment="Left">
-                            <TextBlock Text="{x:Bind TrackName}" Style="{StaticResource ResultsTextStyle}"/>
-                            <TextBlock Text="{x:Bind ArtistName}" Style="{StaticResource ResultsTextStyle}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="History" Style="{StaticResource PageTitleStyle}"/>
+                <Button Content="Clear history" VerticalAlignment="Bottom" Margin="20,0,0,10" Click="ClearHistory_Click"/>
+            </StackPanel>
+            <ScrollViewer>
+                <ListView ItemsSource="{x:Bind sharedData.History}" IsItemClickEnabled="True" ItemClick="ListView_ItemClick">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="data:MusicViewModel">
+                            <StackPanel Margin="20" HorizontalAlignment="Left">
+                                <TextBlock Text="{x:Bind TrackName}" Style="{StaticResource ResultsTextStyle}"/>
+                                <TextBlock Text="{x:Bind ArtistName}" Style="{StaticResource ResultsTextStyle}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
         </StackPanel>
     </Grid>
 </Page>

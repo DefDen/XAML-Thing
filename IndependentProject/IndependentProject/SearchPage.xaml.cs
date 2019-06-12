@@ -2,6 +2,7 @@
 using IndependentProject.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -169,6 +170,35 @@ namespace IndependentProject
             }
 
             this.Frame.Navigate(typeof(ResultsPage), sharedData);
+        }
+
+        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            sharedData.fromHistory = true;
+            MusicViewModel music = (MusicViewModel)e.ClickedItem;
+            ObservableCollection<MusicViewModel> r = new ObservableCollection<MusicViewModel>();
+            sharedData.History.Insert(0, music);
+            foreach (MusicViewModel musicViewModel in sharedData.History)
+            {
+                if (musicViewModel.TrackId != music.TrackId)
+                {
+                    r.Add(musicViewModel);
+                }
+            }
+            sharedData.History.Clear();
+            foreach (MusicViewModel musicViewModel in r)
+            {
+                sharedData.History.Add(musicViewModel);
+            }
+            sharedData.History.Insert(0, music);
+            sharedData.TrackId = "" + music.TrackId;
+            sharedData.CommonTrackId = "" + music.CommonTrackId;
+            this.Frame.Navigate(typeof(SongPage), sharedData);
+        }
+
+        private void ClearHistory_Click(object sender, RoutedEventArgs e)
+        {
+            sharedData.History.Clear();
         }
     }
 }

@@ -13,7 +13,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -26,7 +26,7 @@
         </StackPanel>
         <TextBlock Name="AlbumName" Grid.Row="2" TextWrapping="WrapWholeWords" FontSize="32" Margin="20,0,0,0"/>
         
-        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Visible" Margin="20,0,0,0">
+        <ScrollViewer Grid.Row="3" Margin="20,0,0,0">
             <TextBlock Name="Lyrics"/>
         </ScrollViewer>
         <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right">

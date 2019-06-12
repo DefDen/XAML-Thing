@@ -37,6 +37,10 @@ namespace IndependentProject
         {
             sharedData = (SharedData)e.Parameter;
             SetInfoViewModelAsync(sharedData.TrackId);
+            if(sharedData.fromHistory)
+            {
+                SearchPageButton.Visibility = Visibility.Collapsed;
+            }
         }
 
         private async void SetInfoViewModelAsync(String trackId)
@@ -69,7 +73,15 @@ namespace IndependentProject
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ResultsPage), sharedData);
+            if(sharedData.fromHistory)
+            {
+                sharedData.fromHistory = false;
+                this.Frame.Navigate(typeof(SearchPage), sharedData);
+            }
+            else
+            {
+                this.Frame.Navigate(typeof(ResultsPage), sharedData);
+            }
         }
     }
 }

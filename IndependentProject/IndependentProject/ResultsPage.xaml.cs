@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using IndependentProject.ViewModels;
+using System.Collections.ObjectModel;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -44,6 +45,21 @@ namespace IndependentProject
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             MusicViewModel music = (MusicViewModel)e.ClickedItem;
+            ObservableCollection<MusicViewModel> r = new ObservableCollection<MusicViewModel>();
+            sharedData.History.Insert(0, music);
+            foreach (MusicViewModel musicViewModel in sharedData.History)
+            {
+                if (musicViewModel.TrackId != music.TrackId)
+                {
+                    r.Add(musicViewModel);
+                }
+            }
+            sharedData.History.Clear();
+            foreach (MusicViewModel musicViewModel in r)
+            {
+                sharedData.History.Add(musicViewModel);
+            }
+            sharedData.History.Insert(0, music);
             sharedData.TrackId = "" + music.TrackId;
             sharedData.CommonTrackId = "" + music.CommonTrackId;
             this.Frame.Navigate(typeof(SongPage), sharedData);
