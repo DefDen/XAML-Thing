@@ -18,6 +18,8 @@
             <Setter Property="Width" Value="100"/>
             <Setter Property="Height" Value="40"/>
             <Setter Property="Margin" Value="20,0,0,0"/>
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
+            <Setter Property="Content" Value="&#xE721;"/>
         </Style>
         
         <Style TargetType="Button" x:Key="DropDownButtonStyle">
@@ -31,7 +33,9 @@
 
         <Style TargetType="Button" x:Key="BackButtonStyle">
             <Setter Property="Margin" Value="0,0,20,0"/>
-            <Setter Property="Content" Value="Back"/>
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
+            <Setter Property="Content" Value="&#xE72A;"/>
+            <Setter Property="Grid.ColumnSpan" Value="2"/>
         </Style>
 
         <Style TargetType="TextBlock" x:Key="ResultsTextStyle">

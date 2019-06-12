@@ -16,12 +16,13 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Style="{StaticResource PageTitleStyle}" Text="Search"/>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <TextBlock Text="Search by: " Margin="20,10"/>
-            <Button Name="SearchOptions" Style="{StaticResource SearchButtonStyle}" Content="Select">
+            <Button Name="SearchOptions" Style="{StaticResource SearchButtonStyle}" FontFamily="a" Content="Select">
                 <Button.Flyout>
                     <Flyout>
                         <StackPanel>
@@ -32,7 +33,7 @@
                 </Button.Flyout>
             </Button>
             <TextBox Name="SearchBox" Style="{StaticResource SearchTextBox}"/>
-            <Button Style="{StaticResource SearchButtonStyle}" Content="Search" Click="Search_Click"/>
+            <Button Style="{StaticResource SearchButtonStyle}" Click="Search_Click"/>
             <TextBlock Name="WarningBlock" Foreground="Red" Margin="20,10"/>
         </StackPanel>
         <TextBlock Grid.Row="3" Text="Advanced Search" Style="{StaticResource PageTitleStyle}"/>
@@ -41,26 +42,22 @@
             <TextBox Name="AdvancedSearchTrack" Style="{StaticResource SearchTextBox}"/>
             <TextBlock Text=" by " Margin="20,10,0,0"/>
             <TextBox Name="AdvancedSearchArtist" Style="{StaticResource SearchTextBox}"/>
-            <Button Style="{StaticResource SearchButtonStyle}" Content="Search" Click="AdvancedSearch_Click"/>
+            <Button Style="{StaticResource SearchButtonStyle}" Click="AdvancedSearch_Click"/>
             <TextBlock Name="AdvancedWarningBlock" Foreground="Red" Margin="20,10"/>
         </StackPanel>
-        <StackPanel Grid.Row="5" Orientation="Vertical">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="History" Style="{StaticResource PageTitleStyle}"/>
-                <Button Content="Clear history" VerticalAlignment="Bottom" Margin="20,0,0,10" Click="ClearHistory_Click"/>
-            </StackPanel>
-            <ScrollViewer>
-                <ListView ItemsSource="{x:Bind sharedData.History}" IsItemClickEnabled="True" ItemClick="ListView_ItemClick">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="data:MusicViewModel">
-                            <StackPanel Margin="20" HorizontalAlignment="Left">
-                                <TextBlock Text="{x:Bind TrackName}" Style="{StaticResource ResultsTextStyle}"/>
-                                <TextBlock Text="{x:Bind ArtistName}" Style="{StaticResource ResultsTextStyle}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </ScrollViewer>
+        <StackPanel Grid.Row="5" Orientation="Horizontal">
+            <TextBlock Text="History" Style="{StaticResource PageTitleStyle}"/>
+            <Button Content="Clear history" VerticalAlignment="Bottom" Margin="20,0,0,10" Click="ClearHistory_Click"/>
         </StackPanel>
+        <ListView Grid.Row="6" ItemsSource="{x:Bind sharedData.History}" IsItemClickEnabled="True" ItemClick="ListView_ItemClick">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="data:MusicViewModel">
+                    <StackPanel Margin="20" HorizontalAlignment="Left">
+                        <TextBlock Text="{x:Bind TrackName}" Style="{StaticResource ResultsTextStyle}"/>
+                        <TextBlock Text="{x:Bind ArtistName}" Style="{StaticResource ResultsTextStyle}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

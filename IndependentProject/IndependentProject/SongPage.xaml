@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
         <TextBlock Name="Title" Grid.Row="1" Text="{x:Bind infoViewModel.Title}" Margin="20,20,20,0" Style="{StaticResource PageTitleStyle}"/>
         <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.RowSpan="2">
-            <Button Name="SearchPageButton" Content="Search" Style="{StaticResource BackButtonStyle}" Click="SearchPageButton_Click" Grid.RowSpan="2"/>
+            <Button Name="SearchPageButton" Style="{StaticResource BackButtonStyle}" FontFamily="Segoe MDL2 Assets" Content="&#xE721;" Click="SearchPageButton_Click" Grid.RowSpan="2"/>
             <Button Name="BackButton" Style="{StaticResource BackButtonStyle}" Click="BackButton_Click" Grid.RowSpan="2"/>
         </StackPanel>
         <TextBlock Name="AlbumName" Grid.Row="2" TextWrapping="WrapWholeWords" FontSize="32" Margin="20,0,0,0"/>
