@@ -62,7 +62,7 @@ namespace IndependentProject
             Lyrics.Text = infoViewModel.LyricsString;
             if(Lyrics.Text.Equals(""))
             {
-                Lyrics.Text = "No lyrics availible";
+                Lyrics.Text = "No lyrics available";
             }
             //Links to YT and Spotify
             YouTubeButton.NavigateUri = new Uri("https://www.youtube.com/results?search_query=" + Title.Text);
