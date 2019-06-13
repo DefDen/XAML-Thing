@@ -12,7 +12,8 @@ namespace IndependentProject
     class Retriever
     {
         private string musixMatchKey = "2eb5dcbf3889a59f9a6ff077176d906a";
-
+        
+        //API calls for music searches using song names and artists. Also determines wheather a normal or advanced search is being performed and respones accordingly
         public async Task<MusicSearchRootObject> GetTrackSearchResults(string term, string term2, bool isAdvancedSearch, bool isTrackSearch)
         {
             HttpClient httpClient = new HttpClient();
@@ -40,6 +41,7 @@ namespace IndependentProject
             return results;
         }
         
+        //API call for getting the lyrics for a particular song after getting its track id
         public async Task<LyricsRootObject> GetLyrics(string trackId)
         {
             HttpClient httpClient = new HttpClient();
@@ -52,6 +54,7 @@ namespace IndependentProject
             return results;
         }
 
+        //API call for getting the information on a song such as ablum name using a track id
         public async Task<MusicFromIdRootObject> GetMusic(string trackId)
         {
             HttpClient httpClient = new HttpClient();

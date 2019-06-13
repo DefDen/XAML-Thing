@@ -32,6 +32,7 @@ namespace IndependentProject
             this.InitializeComponent();
         }
 
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             sharedData = (SharedData)e.Parameter;
@@ -42,6 +43,7 @@ namespace IndependentProject
             }
         }
 
+        //Goes to the song page based on the song chosen and addes it to the history for future reference
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             MusicViewModel music = (MusicViewModel)e.ClickedItem;

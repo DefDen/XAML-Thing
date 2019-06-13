@@ -43,11 +43,13 @@ namespace IndependentProject
             }
         }
 
+        //Sets up the TextBlocks on the page by getting the song information and lyrics from the MusixMatch API
         private async void SetInfoViewModelAsync(String trackId)
         {
             Retriever retriever = new Retriever();
             MusicFromIdRootObject music = await retriever.GetMusic(sharedData.CommonTrackId);
             LyricsRootObject lyrics = await retriever.GetLyrics(sharedData.TrackId);
+            //Assigning TextBlock text to match song's info
             infoViewModel = new InfoViewModel()
             {
                 AlbumName = music.message.body.track.album_name,
@@ -62,6 +64,7 @@ namespace IndependentProject
             {
                 Lyrics.Text = "No lyrics availible";
             }
+            //Links to YT and Spotify
             YouTubeButton.NavigateUri = new Uri("https://www.youtube.com/results?search_query=" + Title.Text);
             SpotifyButton.NavigateUri = new Uri("https://open.spotify.com/search/results/" + Title.Text);
         }

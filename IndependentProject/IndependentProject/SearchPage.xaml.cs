@@ -33,6 +33,7 @@ namespace IndependentProject
             this.InitializeComponent();
         }
 
+        //Checks if there were anything in the search boxes last time the user was there. If there were, then they are put in.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             sharedData = (SharedData)e.Parameter;
@@ -65,6 +66,7 @@ namespace IndependentProject
             SearchOptions.Content = "Track";
         }
 
+        //Takes the input from the user and runs a search based on them. Takes the results and places them in a collection that can be data binded later. Takes the user to the results page. 
         private async void Search_Click(object sender, RoutedEventArgs e)
         {
             sharedData.isAdvancedSearch = false;
@@ -73,6 +75,7 @@ namespace IndependentProject
             String SearchTerm = SearchBox.Text;
             MusicSearchRootObject musicSearchRootObject = new MusicSearchRootObject();
             Retriever retriever = new Retriever();
+            //Errors if things are missing
             if(SearchOptions.Content.Equals("Select"))
             {
                 WarningBlock.Text = "Please select a search option";
@@ -86,6 +89,7 @@ namespace IndependentProject
 
             WarningBlock.Text = "";
 
+            //Calls API for root objects
             if (SearchOptions.Content.Equals("Artist"))
             {
                 sharedData.isArtistSearch = true;
@@ -101,7 +105,7 @@ namespace IndependentProject
             sharedData.SearchTerm = SearchTerm;
 
             SearchResults = musicSearchRootObject.message.body.track_list;
-            
+            //Making the observable collection of the results for the results page from the root object
             foreach (TrackList trackList in SearchResults)
             {
                 MusicViewModel music = new MusicViewModel()
@@ -117,6 +121,7 @@ namespace IndependentProject
             this.Frame.Navigate(typeof(ResultsPage), sharedData);
         }
 
+        //Same as previous method, just for advanced search.
         private async void AdvancedSearch_Click(object sender, RoutedEventArgs e)
         {
             sharedData.isAdvancedSearch = true;
@@ -154,7 +159,7 @@ namespace IndependentProject
             {
                 sharedData.SearchTerm = AdvancedSearchTrack.Text + " by " + AdvancedSearchArtist.Text;
             }
-
+            
             SearchResults = musicSearchRootObject.message.body.track_list;
 
             foreach (TrackList trackList in SearchResults)
